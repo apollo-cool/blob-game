@@ -30,6 +30,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1815213741]
+input_pickable = true
 script = ExtResource("1_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=202098322]
@@ -45,5 +46,7 @@ script = ExtResource("2_g2els")
 unique_name_in_owner = true
 one_shot = true
 autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=714938980]
 
 [connection signal="timeout" from="AnimatedSprite2D/BlinkTimer" to="AnimatedSprite2D" method="_on_blink_timer_timeout"]
