@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://derg6evskwk3q" path="res://assets/textures/tilemap.png" id="2_6ep0u"]
 [ext_resource type="PackedScene" uid="uid://bmw6vmytsxhqv" path="res://scenes/functional_tiles/checkpoint_flag.tscn" id="3_hrcei"]
 [ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_xa7n4"]
-[ext_resource type="PackedScene" uid="uid://c7657k3w8s0du" path="res://scenes/functional_tiles/Bouncepad.tscn" id="5_6ep0u"]
 [ext_resource type="PackedScene" uid="uid://y1d1l8yuitqm" path="res://scenes/player.tscn" id="5_bo4dx"]
+[ext_resource type="PackedScene" uid="uid://c7657k3w8s0du" path="res://scenes/functional_tiles/Bouncepad.tscn" id="5_k0mew"]
 [ext_resource type="PackedScene" uid="uid://20n3iexah6tx" path="res://scenes/enemies/enemy.tscn" id="6_76toy"]
-[ext_resource type="FontFile" uid="uid://cn6x1tjw22dqp" path="res://assets/Kenney Blocks.ttf" id="6_hrcei"]
+[ext_resource type="FontFile" uid="uid://cn6x1tjw22dqp" path="res://assets/Kenney Blocks.ttf" id="6_b0vvs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mm7tu"]
 
@@ -27,7 +27,7 @@ scenes/2/scene = ExtResource("4_xa7n4")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_b121j"]
 resource_name = "Bouncepad"
-scenes/1/scene = ExtResource("5_6ep0u")
+scenes/1/scene = ExtResource("5_k0mew")
 
 [sub_resource type="TileSet" id="TileSet_0j62p"]
 physics_layer_0/collision_layer = 1
@@ -44,7 +44,7 @@ script = ExtResource("1_yqkch")
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD2/wQAAQAAAAAAAAD3/wQAAQAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAD6//7/AQACAAAAAAD7//7/AQACAAAAAAD8//7/AQACAAAAAAD9//7/AQACAAAAAAACAP7/AQACAAAAAAADAP7/AQACAAAAAAAEAP7/AQACAAAAAAAFAP7/AQACAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAPAPz/AQACAAAAAAAQAPz/AQACAAAAAAARAPz/AQACAAAAAAD+//7/AQACAAAAAAD///7/AQACAAAAAAAAAP7/AQACAAAAAAABAP7/AQACAAAAAAAOAAQAAQAAAAAAAAD2/wMAAgAAAAAAAQASAPz/AQACAAAAAAATAPz/AQACAAAAAAAUAPz/AQACAAAAAAAVAPz/AQACAAAAAAAWAPz/AQACAAAAAAAXAPz/AQACAAAAAAAYAPz/AQACAAAAAAAYAP3/AQACAAAAAAAYAP7/AQACAAAAAAAYAP//AQACAAAAAAAYAAAAAQACAAAAAAAYAAEAAQACAAAAAAAYAAIAAQACAAAAAAAYAAMAAQACAAAAAAAYAAQAAQACAAAAAAAYAAUAAQACAAAAAAAYAAYAAQACAAAAAAAYAAcAAQACAAAAAAAYAAgAAQACAAAAAAAYAAkAAQACAAAAAAAYAAoAAQACAAAAAAAZAAoAAQACAAAAAAAaAAoAAQACAAAAAAAbAAoAAQACAAAAAAAcAAoAAQACAAAAAAAdAAoAAQACAAAAAAAeAAoAAQACAAAAAAAZAAkAAwAAAAAAAQAaAAkAAwAAAAAAAQAbAAkAAwAAAAAAAQAcAAkAAwAAAAAAAQAdAAkAAwAAAAAAAQAeAAkAAwAAAAAAAQAfAAkAAwAAAAAAAQAgAAkAAwAAAAAAAQAfAAoAAQACAAAAAAAgAAoAAQACAAAAAAALAAMAAgAAAAAAAQAMAAMAAwAAAAAAAQAkAAgAAQAAAAAAAAAlAAgAAQAAAAAAAAAmAAgAAQAAAAAAAAAnAAgAAQAAAAAAAAAoAAgAAQAAAAAAAAAkAAkAAQACAAAAAAAlAAkAAQACAAAAAAAmAAkAAQACAAAAAAAnAAkAAQACAAAAAAAoAAkAAQACAAAAAAAmAAcAAgAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAD2/wQAAQAAAAAAAAD3/wQAAQAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAD6//7/AQACAAAAAAD7//7/AQACAAAAAAD8//7/AQACAAAAAAD9//7/AQACAAAAAAACAP7/AQACAAAAAAADAP7/AQACAAAAAAAEAP7/AQACAAAAAAAFAP7/AQACAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAPAPz/AQACAAAAAAAQAPz/AQACAAAAAAARAPz/AQACAAAAAAD+//7/AQACAAAAAAD///7/AQACAAAAAAAAAP7/AQACAAAAAAABAP7/AQACAAAAAAAOAAQAAQAAAAAAAAD2/wMAAgAAAAAAAQASAPz/AQACAAAAAAATAPz/AQACAAAAAAAUAPz/AQACAAAAAAAVAPz/AQACAAAAAAAWAPz/AQACAAAAAAAXAPz/AQACAAAAAAAYAPz/AQACAAAAAAAYAP3/AQACAAAAAAAYAP7/AQACAAAAAAAYAP//AQACAAAAAAAYAAAAAQACAAAAAAAYAAEAAQACAAAAAAAYAAIAAQACAAAAAAAYAAMAAQACAAAAAAAYAAQAAQACAAAAAAAYAAUAAQACAAAAAAAYAAYAAQACAAAAAAAYAAcAAQACAAAAAAAYAAgAAQACAAAAAAAYAAkAAQACAAAAAAAYAAoAAQACAAAAAAAZAAoAAQACAAAAAAAaAAoAAQACAAAAAAAbAAoAAQACAAAAAAAcAAoAAQACAAAAAAAdAAoAAQACAAAAAAAeAAoAAQACAAAAAAAZAAkAAwAAAAAAAQAaAAkAAwAAAAAAAQAbAAkAAwAAAAAAAQAcAAkAAwAAAAAAAQAdAAkAAwAAAAAAAQAeAAkAAwAAAAAAAQAfAAkAAwAAAAAAAQAgAAkAAwAAAAAAAQAfAAoAAQACAAAAAAAgAAoAAQACAAAAAAALAAMAAgAAAAAAAQAMAAMAAwAAAAAAAQAkAAgAAQAAAAAAAAAlAAgAAQAAAAAAAAAmAAgAAQAAAAAAAAAnAAgAAQAAAAAAAAAoAAgAAQAAAAAAAAAkAAkAAQACAAAAAAAlAAkAAQACAAAAAAAmAAkAAQACAAAAAAAnAAkAAQACAAAAAAAoAAkAAQACAAAAAAAmAAcAAgAAAAAAAgAhAA8AAQACAAAAAAAiAA8AAQACAAAAAAAjAA8AAQACAAAAAAAhAA4AAwAAAAAAAQAiAA4AAwAAAAAAAQAjAA4AAwAAAAAAAQA=")
 tile_set = SubResource("TileSet_0j62p")
 
 [node name="Label3" type="Label" parent="Layer0" unique_id=1353516571]
@@ -52,7 +52,7 @@ offset_left = 406.0
 offset_top = -96.0
 offset_right = 514.0
 offset_bottom = -72.0
-theme_override_fonts/font = ExtResource("6_hrcei")
+theme_override_fonts/font = ExtResource("6_b0vvs")
 text = "Free drop!"
 
 [node name="Label2" type="Label" parent="Layer0" unique_id=2107065506]
@@ -60,15 +60,24 @@ offset_left = 190.0
 offset_top = 26.0
 offset_right = 378.0
 offset_bottom = 50.0
-theme_override_fonts/font = ExtResource("6_hrcei")
+theme_override_fonts/font = ExtResource("6_b0vvs")
 text = "try the bouncepad"
+
+[node name="Label2" type="Label" parent="Layer0/Label2" unique_id=2113493224]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 29.0
+offset_right = 461.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("6_b0vvs")
+text = "bingo!"
 
 [node name="Label" type="Label" parent="Layer0" unique_id=587325417]
 offset_left = -145.0
 offset_top = -15.0
 offset_right = 151.0
 offset_bottom = 9.0
-theme_override_fonts/font = ExtResource("6_hrcei")
+theme_override_fonts/font = ExtResource("6_b0vvs")
 text = "reach your maximum height!"
 metadata/_edit_use_anchors_ = true
 
@@ -102,5 +111,8 @@ position = Vector2(178, -84)
 [connection signal="body_entered" from="Layer0/@Area2D@139861" to="Layer0/@Area2D@139861" method="_on_body_entered"]
 [connection signal="body_entered" from="Layer0/@Area2D@139862" to="Layer0/@Area2D@139862" method="_on_body_entered"]
 [connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@146024" to="Layer0/@Area2D@146024" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@146025" to="Layer0/@Area2D@146025" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@146026" to="Layer0/@Area2D@146026" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]
