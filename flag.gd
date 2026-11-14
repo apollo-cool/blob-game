@@ -1,7 +1,0 @@
-extends Node2D
-
-@export_flags("Checkpoint", "Win Flag") var flag_type := 0
-@onready var sprite: AnimatedSprite2D = %AnimatedSprite2D
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	sprite.frame = flag_type
