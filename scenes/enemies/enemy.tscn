@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://20n3iexah6tx"]
+
+[ext_resource type="Texture2D" uid="uid://dadhe6im38amc" path="res://assets/textures/scifi_enemy.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://dqgx8ne527wis" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwrxv"]
+size = Vector2(14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xqns2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md0e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1815213741]
+input_pickable = true
+script = ExtResource("1_md0e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=202098322]
+shape = SubResource("RectangleShape2D_uwrxv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2067841774]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_xqns2")
+animation = &"idle"
+
+[node name="MoveTimer" type="Timer" parent="." unique_id=760011971]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=2012580420]
+unique_name_in_owner = true
+target_position = Vector2(-13, 0)
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
