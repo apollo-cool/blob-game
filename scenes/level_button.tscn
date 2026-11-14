@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dnd5yfmyhp0nu"]
+
+[ext_resource type="Script" uid="uid://m6ygemjny03t" path="res://scripts/level_button.gd" id="1_o8246"]
+[ext_resource type="FontFile" uid="uid://c0ivaewj1a0dv" path="res://assets/pixel-fonts/Fonts/Kenney Pixel Square.ttf" id="2_hrusj"]
+[ext_resource type="StyleBox" uid="uid://b8qql4a2x1h4f" path="res://scenes/Stylebox/new_style_box_flat.tres" id="3_hrusj"]
+
+[sub_resource type="Theme" id="Theme_xqns2"]
+default_font = ExtResource("2_hrusj")
+
+[node name="LevelButton" type="Control" unique_id=1061522996]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o8246")
+
+[node name="Button" type="Button" parent="." unique_id=1545250100]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = SubResource("Theme_xqns2")
+theme_override_styles/normal = ExtResource("3_hrusj")
+theme_override_styles/pressed = ExtResource("3_hrusj")
+theme_override_styles/hover = ExtResource("3_hrusj")
+text = "1"

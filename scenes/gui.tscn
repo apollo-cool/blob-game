@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dtmv712qrvdhi"]
 
+[ext_resource type="Script" uid="uid://qvpwne64jhm7" path="res://scripts/gui.gd" id="1_efmwq"]
+[ext_resource type="PackedScene" uid="uid://craurxtdv4bq2" path="res://scenes/title_screen.tscn" id="2_mfius"]
+
 [node name="GUI" type="Control" unique_id=293647501]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +10,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_efmwq")
+
+[node name="TitleScreen" parent="." unique_id=48019239 instance=ExtResource("2_mfius")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = -1.0
+offset_bottom = 2.0
