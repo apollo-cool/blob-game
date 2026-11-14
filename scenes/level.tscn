@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bmw6vmytsxhqv" path="res://scenes/functional_tiles/checkpoint_flag.tscn" id="3_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://y1d1l8yuitqm" path="res://scenes/player.tscn" id="3_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://c7657k3w8s0du" path="res://scenes/functional_tiles/Bouncepad.tscn" id="5_klq6b"]
 [ext_resource type="PackedScene" uid="uid://20n3iexah6tx" path="res://scenes/enemies/enemy.tscn" id="6_2r41h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mm7tu"]
@@ -23,11 +24,16 @@ resource_name = "Functional"
 scenes/1/scene = ExtResource("3_mx8sn")
 scenes/2/scene = ExtResource("4_ppgk2")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_b121j"]
+resource_name = "Bouncepad"
+scenes/1/scene = ExtResource("5_klq6b")
+
 [sub_resource type="TileSet" id="TileSet_0j62p"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_mm7tu")
 sources/1 = SubResource("TileSetAtlasSource_iw5l3")
 sources/2 = SubResource("TileSetScenesCollectionSource_ppgk2")
+sources/3 = SubResource("TileSetScenesCollectionSource_b121j")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqns2"]
 size = Vector2(10000000, 240)

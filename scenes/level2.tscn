@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://derg6evskwk3q" path="res://assets/textures/tilemap.png" id="2_6ep0u"]
 [ext_resource type="PackedScene" uid="uid://bmw6vmytsxhqv" path="res://scenes/functional_tiles/checkpoint_flag.tscn" id="3_hrcei"]
 [ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_xa7n4"]
+[ext_resource type="PackedScene" uid="uid://c7657k3w8s0du" path="res://scenes/functional_tiles/Bouncepad.tscn" id="5_6ep0u"]
 [ext_resource type="PackedScene" uid="uid://y1d1l8yuitqm" path="res://scenes/player.tscn" id="5_bo4dx"]
 [ext_resource type="PackedScene" uid="uid://20n3iexah6tx" path="res://scenes/enemies/enemy.tscn" id="6_76toy"]
+[ext_resource type="FontFile" uid="uid://cn6x1tjw22dqp" path="res://assets/Kenney Blocks.ttf" id="6_hrcei"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mm7tu"]
 
@@ -23,11 +25,16 @@ resource_name = "Functional"
 scenes/1/scene = ExtResource("3_hrcei")
 scenes/2/scene = ExtResource("4_xa7n4")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_b121j"]
+resource_name = "Bouncepad"
+scenes/1/scene = ExtResource("5_6ep0u")
+
 [sub_resource type="TileSet" id="TileSet_0j62p"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_mm7tu")
 sources/1 = SubResource("TileSetAtlasSource_iw5l3")
 sources/2 = SubResource("TileSetScenesCollectionSource_ppgk2")
+sources/3 = SubResource("TileSetScenesCollectionSource_b121j")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqns2"]
 size = Vector2(10000000, 240)
@@ -37,15 +44,36 @@ script = ExtResource("1_yqkch")
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD2/wQAAQAAAAAAAAD3/wQAAQAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAD6/wQAAQAAAAAAAAD7/wQAAQAAAAAAAAD8/wQAAQAAAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAMAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD2/wQAAQAAAAAAAAD3/wQAAQAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAD6//7/AQACAAAAAAD7//7/AQACAAAAAAD8//7/AQACAAAAAAD9//7/AQACAAAAAAACAP7/AQACAAAAAAADAP7/AQACAAAAAAAEAP7/AQACAAAAAAAFAP7/AQACAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAPAPz/AQACAAAAAAAQAPz/AQACAAAAAAARAPz/AQACAAAAAAD+//7/AQACAAAAAAD///7/AQACAAAAAAAAAP7/AQACAAAAAAABAP7/AQACAAAAAAANAAMAAwAAAAAAAQAOAAQAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_0j62p")
 
+[node name="Label" type="Label" parent="Layer0" unique_id=587325417]
+offset_left = -145.0
+offset_top = -15.0
+offset_right = 151.0
+offset_bottom = 9.0
+theme_override_fonts/font = ExtResource("6_hrcei")
+text = "reach your maximum height!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Layer0/Label" unique_id=2107065506]
+layout_mode = 0
+offset_left = 321.0
+offset_top = -68.0
+offset_right = 509.0
+offset_bottom = -44.0
+theme_override_fonts/font = ExtResource("6_hrcei")
+text = "try the bouncepad"
+
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1728496637]
+scroll_offset = Vector2(-152, 29)
 
 [node name="Player" parent="." unique_id=1815213741 instance=ExtResource("5_bo4dx")]
 unique_name_in_owner = true
+position = Vector2(-150, 51)
 
 [node name="FallDeath" type="Area2D" parent="." unique_id=1994734699]
+position = Vector2(3, -31)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallDeath" unique_id=702643940]
 position = Vector2(-3, 441)
@@ -56,7 +84,8 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="Enemy" parent="." unique_id=614667678 instance=ExtResource("6_76toy")]
-position = Vector2(19, 27)
+position = Vector2(178, -84)
 
+[connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]
