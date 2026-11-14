@@ -44,8 +44,24 @@ script = ExtResource("1_yqkch")
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD2/wQAAQAAAAAAAAD3/wQAAQAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAD6//7/AQACAAAAAAD7//7/AQACAAAAAAD8//7/AQACAAAAAAD9//7/AQACAAAAAAACAP7/AQACAAAAAAADAP7/AQACAAAAAAAEAP7/AQACAAAAAAAFAP7/AQACAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAPAPz/AQACAAAAAAAQAPz/AQACAAAAAAARAPz/AQACAAAAAAD+//7/AQACAAAAAAD///7/AQACAAAAAAAAAP7/AQACAAAAAAABAP7/AQACAAAAAAANAAMAAwAAAAAAAQAOAAQAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD2/wQAAQAAAAAAAAD3/wQAAQAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAD6//7/AQACAAAAAAD7//7/AQACAAAAAAD8//7/AQACAAAAAAD9//7/AQACAAAAAAACAP7/AQACAAAAAAADAP7/AQACAAAAAAAEAP7/AQACAAAAAAAFAP7/AQACAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAPAPz/AQACAAAAAAAQAPz/AQACAAAAAAARAPz/AQACAAAAAAD+//7/AQACAAAAAAD///7/AQACAAAAAAAAAP7/AQACAAAAAAABAP7/AQACAAAAAAAOAAQAAQAAAAAAAAD2/wMAAgAAAAAAAQASAPz/AQACAAAAAAATAPz/AQACAAAAAAAUAPz/AQACAAAAAAAVAPz/AQACAAAAAAAWAPz/AQACAAAAAAAXAPz/AQACAAAAAAAYAPz/AQACAAAAAAAYAP3/AQACAAAAAAAYAP7/AQACAAAAAAAYAP//AQACAAAAAAAYAAAAAQACAAAAAAAYAAEAAQACAAAAAAAYAAIAAQACAAAAAAAYAAMAAQACAAAAAAAYAAQAAQACAAAAAAAYAAUAAQACAAAAAAAYAAYAAQACAAAAAAAYAAcAAQACAAAAAAAYAAgAAQACAAAAAAAYAAkAAQACAAAAAAAYAAoAAQACAAAAAAAZAAoAAQACAAAAAAAaAAoAAQACAAAAAAAbAAoAAQACAAAAAAAcAAoAAQACAAAAAAAdAAoAAQACAAAAAAAeAAoAAQACAAAAAAAZAAkAAwAAAAAAAQAaAAkAAwAAAAAAAQAbAAkAAwAAAAAAAQAcAAkAAwAAAAAAAQAdAAkAAwAAAAAAAQAeAAkAAwAAAAAAAQAfAAkAAwAAAAAAAQAgAAkAAwAAAAAAAQAfAAoAAQACAAAAAAAgAAoAAQACAAAAAAALAAMAAgAAAAAAAQAMAAMAAwAAAAAAAQAkAAgAAQAAAAAAAAAlAAgAAQAAAAAAAAAmAAgAAQAAAAAAAAAnAAgAAQAAAAAAAAAoAAgAAQAAAAAAAAAkAAkAAQACAAAAAAAlAAkAAQACAAAAAAAmAAkAAQACAAAAAAAnAAkAAQACAAAAAAAoAAkAAQACAAAAAAAmAAcAAgAAAAAAAgA=")
 tile_set = SubResource("TileSet_0j62p")
+
+[node name="Label3" type="Label" parent="Layer0" unique_id=1353516571]
+offset_left = 406.0
+offset_top = -96.0
+offset_right = 514.0
+offset_bottom = -72.0
+theme_override_fonts/font = ExtResource("6_hrcei")
+text = "Free drop!"
+
+[node name="Label2" type="Label" parent="Layer0" unique_id=2107065506]
+offset_left = 190.0
+offset_top = 26.0
+offset_right = 378.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("6_hrcei")
+text = "try the bouncepad"
 
 [node name="Label" type="Label" parent="Layer0" unique_id=587325417]
 offset_left = -145.0
@@ -55,15 +71,6 @@ offset_bottom = 9.0
 theme_override_fonts/font = ExtResource("6_hrcei")
 text = "reach your maximum height!"
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Layer0/Label" unique_id=2107065506]
-layout_mode = 0
-offset_left = 321.0
-offset_top = -68.0
-offset_right = 509.0
-offset_bottom = -44.0
-theme_override_fonts/font = ExtResource("6_hrcei")
-text = "try the bouncepad"
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1728496637]
 scroll_offset = Vector2(-152, 29)
@@ -86,6 +93,14 @@ one_shot = true
 [node name="Enemy" parent="." unique_id=614667678 instance=ExtResource("6_76toy")]
 position = Vector2(178, -84)
 
+[connection signal="body_entered" from="Layer0/@Area2D@139855" to="Layer0/@Area2D@139855" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@139856" to="Layer0/@Area2D@139856" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@139857" to="Layer0/@Area2D@139857" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@139858" to="Layer0/@Area2D@139858" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@139859" to="Layer0/@Area2D@139859" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@139860" to="Layer0/@Area2D@139860" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@139861" to="Layer0/@Area2D@139861" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@139862" to="Layer0/@Area2D@139862" method="_on_body_entered"]
 [connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]
