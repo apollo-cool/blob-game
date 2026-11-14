@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://q7n4tpwujgus"]
 
 [ext_resource type="Script" uid="uid://bbha3kodl6hdc" path="res://scripts/game.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://bpphudwqk3myq" path="res://scenes/level.tscn" id="2_yqjtg"]
+[ext_resource type="AudioStream" uid="uid://cuydc50ru5qyy" path="res://assets/Background-music.wav" id="2_yqjtg"]
 
 [node name="Game" type="Node2D" unique_id=93276433]
 script = ExtResource("1_uwrxv")
 
-[node name="Level" parent="." unique_id=2090821432 instance=ExtResource("2_yqjtg")]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1364408502]
+unique_name_in_owner = true
+stream = ExtResource("2_yqjtg")
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

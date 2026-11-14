@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var lives := 3
+@onready var streamer: AudioStreamPlayer2D = %AudioStreamPlayer2D
 
 signal game_won
 signal game_lost
@@ -21,3 +22,7 @@ func _on_player_died() -> void:
 	
 	if lives <= 0:
 		game_lost.emit()
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+	streamer.play()
