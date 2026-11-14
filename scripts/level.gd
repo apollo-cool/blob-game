@@ -1,4 +1,6 @@
 extends Node2D
+class_name Level
+
 signal player_died
 
 @onready var player_template := preload("res://scenes/player.tscn")
