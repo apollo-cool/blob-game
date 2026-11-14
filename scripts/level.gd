@@ -6,6 +6,9 @@ signal player_died
 @onready var player_template := preload("res://scenes/player.tscn")
 @onready var player: Player = %Player
 @onready var respawn_timer: Timer = %RespawnTimer
+@export var next_level: PackedScene
+@export var is_locked := true
+
 var checkpoint_position: Vector2
 signal game_won
 
