@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://77gmyibdttd8"]
 
+[ext_resource type="PackedScene" uid="uid://dtmv712qrvdhi" path="res://scenes/gui.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://q7n4tpwujgus" path="res://scenes/game.tscn" id="1_o5qli"]
 
 [node name="Main" type="Node" unique_id=854407161]
+
+[node name="GUI" parent="." unique_id=293647501 instance=ExtResource("1_0wfyh")]
+offset_left = 73.29999
+offset_top = 61.549988
+offset_right = 73.29999
+offset_bottom = 61.549988
 
 [node name="Game" parent="." unique_id=93276433 instance=ExtResource("1_o5qli")]

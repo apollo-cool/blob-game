@@ -1,26 +1,8 @@
 [gd_scene format=3 uid="uid://q7n4tpwujgus"]
 
-[ext_resource type="PackedScene" uid="uid://y1d1l8yuitqm" path="res://scenes/player.tscn" id="1_uwrxv"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xqns2"]
-distance = -147.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qducp"]
-normal = Vector2(0, 1)
-distance = 71.0
+[ext_resource type="PackedScene" uid="uid://bpphudwqk3myq" path="res://scenes/level.tscn" id="1_uwrxv"]
 
 [node name="Game" type="Node2D" unique_id=93276433]
 
-[node name="Player" parent="." unique_id=571597821 instance=ExtResource("1_uwrxv")]
-position = Vector2(22, 112)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=840169070]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=300485000]
-shape = SubResource("WorldBoundaryShape2D_xqns2")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=931360466]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=389311474]
-position = Vector2(0, 12)
-shape = SubResource("WorldBoundaryShape2D_qducp")
+[node name="Level" parent="." unique_id=2090821432 instance=ExtResource("1_uwrxv")]
+position = Vector2(38.61612, 100.36783)
