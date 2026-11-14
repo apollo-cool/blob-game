@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://derg6evskwk3q" path="res://assets/textures/tilemap.png" id="2_6sh32"]
 [ext_resource type="PackedScene" uid="uid://bmw6vmytsxhqv" path="res://scenes/functional_tiles/checkpoint_flag.tscn" id="3_ejswk"]
 [ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_bbk5w"]
+[ext_resource type="PackedScene" uid="uid://c7657k3w8s0du" path="res://scenes/functional_tiles/Bouncepad.tscn" id="5_1seuy"]
 [ext_resource type="PackedScene" uid="uid://y1d1l8yuitqm" path="res://scenes/player.tscn" id="5_conm7"]
+[ext_resource type="FontFile" uid="uid://cn6x1tjw22dqp" path="res://assets/Kenney Blocks.ttf" id="6_2r1tl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mm7tu"]
 
@@ -22,11 +24,16 @@ resource_name = "Functional"
 scenes/1/scene = ExtResource("3_ejswk")
 scenes/2/scene = ExtResource("4_bbk5w")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1seuy"]
+resource_name = "Bouncepad"
+scenes/1/scene = ExtResource("5_1seuy")
+
 [sub_resource type="TileSet" id="TileSet_0j62p"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_mm7tu")
 sources/1 = SubResource("TileSetAtlasSource_iw5l3")
 sources/2 = SubResource("TileSetScenesCollectionSource_ppgk2")
+sources/3 = SubResource("TileSetScenesCollectionSource_1seuy")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqns2"]
 size = Vector2(10000000, 240)
@@ -36,14 +43,26 @@ script = ExtResource("1_ru4tf")
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAD+/wEAAQAAAAAAAAACAAEAAQAAAAAAAAABAP3/AQABAAAAAAACAP3/AQABAAAAAAADAP3/AQABAAAAAAAEAP3/AQABAAAAAAAFAP3/AQABAAAAAAAGAP3/AQABAAAAAAAHAP3/AQABAAAAAAAIAP3/AQABAAAAAAAJAP3/AQABAAAAAAAKAP3/AQABAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAAKAAIAAQAAAAAAAAAKAAMAAQAAAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAOAAQAAQAAAAAAAAAPAAEAAQACAAAAAAAQAAEAAQACAAAAAAARAAEAAQACAAAAAAASAAEAAQACAAAAAAATAAEAAQACAAAAAAAUAAQAAQAAAAAAAAAVAAQAAQAAAAAAAAAWAAQAAQAAAAAAAAAXAAQAAQAAAAAAAAAYAAQAAQAAAAAAAAAZAAQAAQAAAAAAAAAPAP7/AQACAAAAAAAPAP//AQACAAAAAAAPAAAAAQACAAAAAAATAP7/AQACAAAAAAATAP//AQACAAAAAAATAAAAAQACAAAAAAAPAP3/AQACAAAAAAATAP3/AQACAAAAAAABAPn/AQACAAAAAAACAPn/AQACAAAAAAAFAPn/AQACAAAAAAAGAPn/AQACAAAAAAAJAPn/AQACAAAAAAAKAPn/AQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAD+/wEAAQAAAAAAAAACAAEAAQAAAAAAAAABAP3/AQABAAAAAAACAP3/AQABAAAAAAADAP3/AQABAAAAAAAEAP3/AQABAAAAAAAFAP3/AQABAAAAAAAGAP3/AQABAAAAAAAHAP3/AQABAAAAAAAIAP3/AQABAAAAAAAJAP3/AQABAAAAAAAKAP3/AQABAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAAKAAIAAQAAAAAAAAAKAAMAAQAAAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAOAAQAAQAAAAAAAAAPAAEAAQACAAAAAAAQAAEAAQACAAAAAAARAAEAAQACAAAAAAASAAEAAQACAAAAAAATAAEAAQACAAAAAAAUAAQAAQAAAAAAAAAVAAQAAQACAAAAAAAWAAQAAQACAAAAAAAXAAQAAQACAAAAAAAYAAQAAQACAAAAAAAZAAQAAQACAAAAAAAPAP7/AQACAAAAAAAPAP//AQACAAAAAAAPAAAAAQACAAAAAAATAP7/AQACAAAAAAATAP//AQACAAAAAAATAAAAAQACAAAAAAAPAP3/AQACAAAAAAATAP3/AQACAAAAAAABAPn/AQACAAAAAAACAPn/AQACAAAAAAAFAPn/AQACAAAAAAAGAPn/AQACAAAAAAAJAPn/AQACAAAAAAAKAPn/AQACAAAAAAABAAAAAwAAAAAAAQACAAAAAwAAAAAAAQADAAAAAwAAAAAAAQAEAAAAAwAAAAAAAQAFAAAAAwAAAAAAAQANAAMAAgAAAAAAAQAXAAMAAgAAAAAAAgA=")
 tile_set = SubResource("TileSet_0j62p")
 
-[node name="CheckpointFlag" parent="Layer0" unique_id=609955660 instance=ExtResource("3_ejswk")]
-position = Vector2(211, 56)
+[node name="Label2" type="Label" parent="Layer0" unique_id=1397361790]
+offset_left = 11.0
+offset_top = -35.0
+offset_right = 179.0
+offset_bottom = -11.0
+theme_override_fonts/font = ExtResource("6_2r1tl")
+theme_override_font_sizes/font_size = 16
+text = "Stick to the top"
 
-[node name="WinFlag" parent="Layer0" unique_id=1867092020 instance=ExtResource("4_bbk5w")]
-position = Vector2(373, 55)
+[node name="Label" type="Label" parent="Layer0" unique_id=715194309]
+offset_left = -113.0
+offset_top = 27.0
+offset_right = 159.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("6_2r1tl")
+theme_override_font_sizes/font_size = 16
+text = "DON'T TOUCH THE BOUCEPADS"
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1728496637]
 
@@ -61,5 +80,10 @@ shape = SubResource("RectangleShape2D_xqns2")
 unique_name_in_owner = true
 one_shot = true
 
+[connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@19826" to="Layer0/@Area2D@19826" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@19827" to="Layer0/@Area2D@19827" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@19828" to="Layer0/@Area2D@19828" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@19829" to="Layer0/@Area2D@19829" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]

@@ -3,6 +3,13 @@ class_name Player
 
 @export var SPEED := 300
 @export var JUMP_VELOCITY := 400
+@export var ceiling_bounce_force: float = 400.0
+var is_bouncing: bool = false
+
+func apply_bounce(force: float) -> void:
+	velocity.y = force
+	is_bouncing = true
+
 
 var is_clinging_to_ceiling := false
 
@@ -33,3 +40,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
+	
+	if is_bouncing and is_on_ceiling():
+		velocity.y = ceiling_bounce_force
+		is_bouncing = false
+
+	if is_on_floor():
+		is_bouncing = false
