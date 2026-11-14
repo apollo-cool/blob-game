@@ -1,0 +1,62 @@
+[gd_scene format=4 uid="uid://m6g2yq8ldb0j"]
+
+[ext_resource type="Script" uid="uid://te7ys27pfpxw" path="res://scripts/level.gd" id="1_yqkch"]
+[ext_resource type="Texture2D" uid="uid://derg6evskwk3q" path="res://assets/textures/tilemap.png" id="2_6ep0u"]
+[ext_resource type="PackedScene" uid="uid://bmw6vmytsxhqv" path="res://scenes/functional_tiles/checkpoint_flag.tscn" id="3_hrcei"]
+[ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_xa7n4"]
+[ext_resource type="PackedScene" uid="uid://y1d1l8yuitqm" path="res://scenes/player.tscn" id="5_bo4dx"]
+[ext_resource type="PackedScene" uid="uid://20n3iexah6tx" path="res://scenes/enemies/enemy.tscn" id="6_76toy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mm7tu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iw5l3"]
+texture = ExtResource("2_6ep0u")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ppgk2"]
+resource_name = "Functional"
+scenes/1/scene = ExtResource("3_hrcei")
+scenes/2/scene = ExtResource("4_xa7n4")
+
+[sub_resource type="TileSet" id="TileSet_0j62p"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_mm7tu")
+sources/1 = SubResource("TileSetAtlasSource_iw5l3")
+sources/2 = SubResource("TileSetScenesCollectionSource_ppgk2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqns2"]
+size = Vector2(10000000, 240)
+
+[node name="Level" type="Node2D" unique_id=2090821432]
+script = ExtResource("1_yqkch")
+
+[node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD2/wQAAQAAAAAAAAD3/wQAAQAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAD6/wQAAQAAAAAAAAD7/wQAAQAAAAAAAAD8/wQAAQAAAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAMAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_0j62p")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1728496637]
+
+[node name="Player" parent="." unique_id=1815213741 instance=ExtResource("5_bo4dx")]
+unique_name_in_owner = true
+
+[node name="FallDeath" type="Area2D" parent="." unique_id=1994734699]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallDeath" unique_id=702643940]
+position = Vector2(-3, 441)
+shape = SubResource("RectangleShape2D_xqns2")
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=2120871634]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Enemy" parent="." unique_id=614667678 instance=ExtResource("6_76toy")]
+position = Vector2(19, 27)
+
+[connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]

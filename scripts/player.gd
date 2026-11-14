@@ -6,9 +6,13 @@ class_name Player
 @export var ceiling_bounce_force: float = 400.0
 var is_bouncing: bool = false
 
-func apply_bounce(force: float) -> void:
-	velocity.y = force
+func apply_bounce(bounce_vel: Vector2) -> void:
+	if bounce_vel.x != 0.0:
+		velocity.x = bounce_vel.x
+	if bounce_vel.y != 0.0:
+		velocity.y = bounce_vel.y
 	is_bouncing = true
+
 
 
 var is_clinging_to_ceiling := false

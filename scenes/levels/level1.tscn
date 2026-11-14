@@ -110,8 +110,8 @@ shape = SubResource("RectangleShape2D_xqns2")
 unique_name_in_owner = true
 one_shot = true
 
-[connection signal="body_entered" from="Layer0/@Area2D@41235" to="Layer0/@Area2D@41235" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@41236" to="Layer0/@Area2D@41236" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@41237" to="Layer0/@Area2D@41237" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@85527" to="Layer0/@Area2D@85527" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@85528" to="Layer0/@Area2D@85528" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]
