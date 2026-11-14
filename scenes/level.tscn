@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://bpphudwqk3myq"]
+[gd_scene format=4 uid="uid://bpphudwqk3myq"]
 
 [ext_resource type="Script" uid="uid://te7ys27pfpxw" path="res://scripts/level.gd" id="1_w8frs"]
 [ext_resource type="Texture2D" uid="uid://derg6evskwk3q" path="res://assets/textures/tilemap.png" id="2_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://bmw6vmytsxhqv" path="res://scenes/functional_tiles/checkpoint_flag.tscn" id="3_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://y1d1l8yuitqm" path="res://scenes/player.tscn" id="3_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://20n3iexah6tx" path="res://scenes/enemies/enemy.tscn" id="6_2r41h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mm7tu"]
 
@@ -36,6 +37,7 @@ script = ExtResource("1_w8frs")
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
 use_parent_material = true
+tile_map_data = PackedByteArray("AAD2/wQAAQAAAAAAAAD3/wQAAQAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAD6/wQAAQAAAAAAAAD7/wQAAQAAAAAAAAD8/wQAAQAAAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAMAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_0j62p")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1728496637]
@@ -52,6 +54,9 @@ shape = SubResource("RectangleShape2D_xqns2")
 [node name="RespawnTimer" type="Timer" parent="." unique_id=2120871634]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="Enemy" parent="." unique_id=614667678 instance=ExtResource("6_2r41h")]
+position = Vector2(19, 27)
 
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]
