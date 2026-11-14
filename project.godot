@@ -14,6 +14,11 @@ config/name="Blob Game"
 run/main_scene="uid://77gmyibdttd8"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+DataManager="*uid://bwle80vlj8jbe"
+GlobalSignals="*uid://4o0psjsnq2rh"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=2
