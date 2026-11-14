@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cx05u5dymhxt0"]
 
 [ext_resource type="Script" uid="uid://te7ys27pfpxw" path="res://scripts/level.gd" id="1_ru4tf"]
+[ext_resource type="Texture2D" uid="uid://ca76x6qtjs6c2" path="res://assets/textures/aseprite/level_BG.png" id="2_1seuy"]
 [ext_resource type="Texture2D" uid="uid://derg6evskwk3q" path="res://assets/textures/tilemap.png" id="2_6sh32"]
 [ext_resource type="PackedScene" uid="uid://bmw6vmytsxhqv" path="res://scenes/functional_tiles/checkpoint_flag.tscn" id="3_ejswk"]
 [ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_bbk5w"]
@@ -40,6 +41,13 @@ size = Vector2(10000000, 240)
 
 [node name="Level" type="Node2D" unique_id=2090821432]
 script = ExtResource("1_ru4tf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1229800865]
+offset_left = -120.0
+offset_top = -189.0
+offset_right = 447.0
+offset_bottom = 148.0
+texture = ExtResource("2_1seuy")
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
 use_parent_material = true
