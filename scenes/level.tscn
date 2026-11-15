@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://c7657k3w8s0du" path="res://scenes/functional_tiles/Bouncepad.tscn" id="5_klq6b"]
 [ext_resource type="PackedScene" uid="uid://20n3iexah6tx" path="res://scenes/enemies/enemy.tscn" id="6_2r41h"]
+[ext_resource type="FontFile" uid="uid://cn6x1tjw22dqp" path="res://assets/Kenney Blocks.ttf" id="6_b121j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mm7tu"]
 
@@ -45,6 +46,14 @@ script = ExtResource("1_w8frs")
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD2/wQAAQAAAAAAAAD3/wQAAQAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAD6/wQAAQAAAAAAAAD7/wQAAQAAAAAAAAD8/wQAAQAAAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAMAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_0j62p")
+
+[node name="Label" type="Label" parent="Layer0" unique_id=1195985264]
+offset_left = -152.0
+offset_top = -30.0
+offset_right = 228.0
+offset_bottom = -6.0
+theme_override_fonts/font = ExtResource("6_b121j")
+text = "Duplicate this label for pixel font"
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1728496637]
 
