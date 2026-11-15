@@ -119,7 +119,7 @@ unique_name_in_owner = true
 one_shot = true
 
 [connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@264937" to="Layer0/@Area2D@264937" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@264938" to="Layer0/@Area2D@264938" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@400514" to="Layer0/@Area2D@400514" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@400515" to="Layer0/@Area2D@400515" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]
