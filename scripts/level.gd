@@ -1,16 +1,11 @@
 extends Node2D
 class_name Level
-
 signal player_died
 
 @onready var player_template := preload("res://scenes/player.tscn")
 @onready var player: Player = %Player
 @onready var respawn_timer: Timer = %RespawnTimer
-@export var next_level: PackedScene
-@export var is_locked := true
-
 var checkpoint_position: Vector2
-signal game_won
 
 func _on_checkpoint(included_position: Vector2) -> void:
 	print("Player hit checkpoint at")
@@ -20,7 +15,7 @@ func _on_checkpoint(included_position: Vector2) -> void:
 
 func _on_goal_reached() -> void:
 	print("Player beat this level")
-	game_won.emit()
+	GlobalSignals.game_over.emit(true)
 
 func kill_player() -> void:
 	player_died.emit()
@@ -42,7 +37,3 @@ func _ready() -> void:
 	GlobalSignals.checkpoint_reached.connect(_on_checkpoint)
 	GlobalSignals.goal_reached.connect(_on_goal_reached)
 	GlobalSignals.player_attacked.connect(kill_player)
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.

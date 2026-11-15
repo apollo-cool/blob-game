@@ -3,20 +3,19 @@ extends Node2D
 @export var lives := 3
 @onready var streamer: AudioStreamPlayer2D = %AudioStreamPlayer2D
 
-signal game_won
-signal game_lost
 signal player_lost_life(lives_remaining: int)
 
 var next_level: PackedScene
+var level: Level
 
-func _on_game_won() -> void:
-	game_won.emit()
+func _on_game_won(_win: bool) -> void:
+	level.queue_free()
 
 func load_level(level_info: PackedScene) -> void:
 	print("Now loading level")
-	var level: Level = level_info.instantiate()
+	level = level_info.instantiate()
 	add_child(level)
-	level.game_won.connect(_on_game_won)
+	level.player_died.connect(_on_player_died)
 
 
 func _on_player_died() -> void:
@@ -24,10 +23,13 @@ func _on_player_died() -> void:
 	player_lost_life.emit(lives)
 	
 	if lives <= 0:
-		game_lost.emit()
+		GlobalSignals.game_over.emit(false)
+		level.queue_free()
 
 func _on_audio_stream_player_2d_finished() -> void:
 	streamer.play()
 
 func _ready() -> void:
 	GlobalSignals.level_selected.connect(load_level)
+	GlobalSignals.game_over.connect(_on_game_won)
+	

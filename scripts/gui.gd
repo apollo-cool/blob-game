@@ -23,9 +23,12 @@ func set_death_screen() -> void:
 func _ready() -> void:
 	GlobalSignals.play_button_pressed.connect(_on_play_button_pressed)
 	GlobalSignals.level_selected.connect(_on_level_chosen)
+	GlobalSignals.game_over.connect(_on_game_over)
+
+func _on_game_over(_win: bool) -> void:
+	add_level_selector()
 
 func add_level_selector() -> void:
 	var level_screen: LevelSelector = level_screen_resource.instantiate()
-	title_screen.queue_free()
 	add_child(level_screen)
 	level_screen.position = Vector2(160,0)
