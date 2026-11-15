@@ -17,12 +17,11 @@ func load_level(level_info: PackedScene) -> void:
 
 
 func _on_player_died() -> void:
-	lives -= 3
+	lives -= 1
 	player_lost_life.emit(lives)
 	
 	if lives <= 0:
 		game_lost.emit()
-
 
 func _on_audio_stream_player_2d_finished() -> void:
 	streamer.play()
