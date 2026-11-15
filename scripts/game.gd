@@ -8,9 +8,7 @@ signal player_lost_life(lives_remaining: int)
 var next_level: PackedScene
 var level: Level
 
-func _on_game_won() -> void:
-	
-	GlobalSignals.game_over.emit(true)
+func _on_game_won(_win: bool) -> void:
 	level.queue_free()
 
 func load_level(level_info: PackedScene) -> void:
@@ -33,4 +31,5 @@ func _on_audio_stream_player_2d_finished() -> void:
 
 func _ready() -> void:
 	GlobalSignals.level_selected.connect(load_level)
+	GlobalSignals.game_over.connect(_on_game_won)
 	
