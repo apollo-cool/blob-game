@@ -21,14 +21,12 @@ func load_level(level_info: PackedScene) -> void:
 
 
 func _on_player_died() -> void:
-	print(lives)
-	lives -= 3
+	lives -= 1
 	player_lost_life.emit(lives)
 	
 	if lives <= 0:
 		GlobalSignals.game_over.emit(false)
 		level.queue_free()
-
 
 func _on_audio_stream_player_2d_finished() -> void:
 	streamer.play()

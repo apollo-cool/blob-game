@@ -1,6 +1,7 @@
 extends Control
 
 @onready var level_screen_resource: = preload("res://scenes/Stylebox/level_selector.tscn")
+@onready var death_screen_resource: = preload("res://scenes/death_screen.tscn")
 @onready var title_screen: TitleScreen = %TitleScreen
 func _on_play_button_pressed() -> void:
 	var level_screen: LevelSelector = level_screen_resource.instantiate()
@@ -14,6 +15,10 @@ func _on_level_chosen(_level_selected: PackedScene) -> void:
 	level_screen.queue_free()
 	
 
+
+func set_death_screen() -> void:
+	var death_screen: DeathScreen = death_screen_resource.instantiate()
+	add_child(death_screen)
 
 func _ready() -> void:
 	GlobalSignals.play_button_pressed.connect(_on_play_button_pressed)
