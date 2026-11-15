@@ -2,15 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dtmv712qrvdhi" path="res://scenes/gui.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://q7n4tpwujgus" path="res://scenes/game.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://sg2kduf0vggh" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://mpsjl0oecc7f" path="res://scenes/main.gd" id="1_sugp2"]
 
 [node name="Main" type="Node" unique_id=854407161]
 script = ExtResource("1_sugp2")
 
+[node name="Game" parent="." unique_id=93276433 instance=ExtResource("1_o5qli")]
+
 [node name="GUI" parent="." unique_id=293647501 instance=ExtResource("1_0wfyh")]
 offset_right = -320.0
 offset_bottom = -160.0
-
-[node name="Game" parent="." unique_id=93276433 instance=ExtResource("1_o5qli")]
-
-[connection signal="game_lost" from="Game" to="." method="_on_game_game_lost"]

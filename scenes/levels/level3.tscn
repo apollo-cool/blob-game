@@ -1,0 +1,177 @@
+[gd_scene format=4 uid="uid://bfbyh3pv0moo1"]
+
+[ext_resource type="Script" uid="uid://te7ys27pfpxw" path="res://scripts/level.gd" id="1_b72m1"]
+[ext_resource type="Texture2D" uid="uid://derg6evskwk3q" path="res://assets/textures/tilemap.png" id="2_5mhml"]
+[ext_resource type="PackedScene" uid="uid://bmw6vmytsxhqv" path="res://scenes/functional_tiles/checkpoint_flag.tscn" id="3_rupth"]
+[ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_6qt4k"]
+[ext_resource type="PackedScene" uid="uid://c7657k3w8s0du" path="res://scenes/functional_tiles/Bouncepad.tscn" id="5_fh4ka"]
+[ext_resource type="FontFile" uid="uid://cn6x1tjw22dqp" path="res://assets/Kenney Blocks.ttf" id="6_8w0pe"]
+[ext_resource type="PackedScene" uid="uid://y1d1l8yuitqm" path="res://scenes/player.tscn" id="6_qewby"]
+[ext_resource type="PackedScene" uid="uid://20n3iexah6tx" path="res://scenes/enemies/enemy.tscn" id="7_bradm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mm7tu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iw5l3"]
+texture = ExtResource("2_5mhml")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ppgk2"]
+resource_name = "Functional"
+scenes/1/scene = ExtResource("3_rupth")
+scenes/2/scene = ExtResource("4_6qt4k")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_b121j"]
+resource_name = "Bouncepad"
+scenes/1/scene = ExtResource("5_fh4ka")
+
+[sub_resource type="TileSet" id="TileSet_0j62p"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_mm7tu")
+sources/1 = SubResource("TileSetAtlasSource_iw5l3")
+sources/2 = SubResource("TileSetScenesCollectionSource_ppgk2")
+sources/3 = SubResource("TileSetScenesCollectionSource_b121j")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqns2"]
+size = Vector2(10000000, 240)
+
+[node name="Level" type="Node2D" unique_id=2090821432]
+script = ExtResource("1_b72m1")
+
+[node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAALAAEAAQAAAAAAAAAMAAEAAQAAAAAAAAANAAEAAQAAAAAAAAAOAAEAAQAAAAAAAAAPAAEAAQAAAAAAAAAQAAEAAQAAAAAAAAARAAEAAQAAAAAAAAASAAEAAQAAAAAAAAATAAEAAQAAAAAAAAAUAAEAAQAAAAAAAAAVAAEAAQAAAAAAAAAWAAEAAQAAAAAAAAAXAAEAAQAAAAAAAAAYAAEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAADAAAAAwAAAAAAAQAEAAAAAwAAAAAAAQAFAAAAAwAAAAAAAQAGAAAAAwAAAAAAAQAHAAAAAwAAAAAAAQAIAAAAAwAAAAAAAQAJAAAAAwAAAAAAAQAKAAAAAwAAAAAAAQALAAAAAwAAAAAAAQAMAAAAAwAAAAAAAQANAAAAAwAAAAAAAQAOAAAAAwAAAAAAAQAPAAAAAwAAAAAAAQAQAAAAAwAAAAAAAQD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAADAP3/AQAAAAAAAAAEAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAGAP3/AQAAAAAAAAAHAP3/AQAAAAAAAAAIAP3/AQAAAAAAAAAJAP3/AQAAAAAAAAAKAP3/AQAAAAAAAAALAP3/AQAAAAAAAAAMAP3/AQAAAAAAAAANAP3/AQAAAAAAAAAOAP3/AQAAAAAAAAAPAP3/AQAAAAAAAAAQAP3/AQAAAAAAAAARAP3/AQAAAAAAAAASAP3/AQAAAAAAAAATAP3/AQAAAAAAAAAUAP3/AQAAAAAAAAAVAP3/AQAAAAAAAAAWAP3/AQAAAAAAAAAXAP3/AQAAAAAAAAAYAP3/AQAAAAAAAAARAAAAAwAAAAAAAQASAAAAAwAAAAAAAQATAAAAAwAAAAAAAQAUAAAAAwAAAAAAAQAVAAAAAwAAAAAAAQAWAAAAAwAAAAAAAQAXAAAAAwAAAAAAAQAYAAAAAwAAAAAAAQAbAP3/AQAAAAAAAAAcAP3/AQAAAAAAAAAdAP3/AQAAAAAAAAAeAP3/AQAAAAAAAAAfAP3/AQAAAAAAAAAgAP3/AQAAAAAAAAAhAP3/AQAAAAAAAAAiAP3/AQAAAAAAAAAjAP3/AQAAAAAAAAAkAP3/AQAAAAAAAAAlAP3/AQAAAAAAAAAmAP3/AQAAAAAAAAAnAP3/AQAAAAAAAAAoAP3/AQAAAAAAAAApAP3/AQAAAAAAAAAqAP3/AQAAAAAAAAArAP3/AQAAAAAAAAAsAP3/AQAAAAAAAAAZAAoAAQAAAAAAAAAaAAoAAQAAAAAAAAAbAAoAAQAAAAAAAAAcAAoAAQAAAAAAAAAdAAoAAQAAAAAAAAAeAAoAAQAAAAAAAAAfAAoAAQAAAAAAAAAgAAoAAQAAAAAAAAAhAAoAAQAAAAAAAAAiAAoAAQAAAAAAAAAjAAoAAQAAAAAAAAAkAAoAAQAAAAAAAAAlAAoAAQAAAAAAAAAmAAoAAQAAAAAAAAAnAAoAAQAAAAAAAAAoAAoAAQAAAAAAAAApAAoAAQAAAAAAAAAqAAoAAQAAAAAAAAArAAoAAQAAAAAAAAAsAAoAAQAAAAAAAAAtAAoAAQAAAAAAAAAuAAoAAQAAAAAAAAAvAAoAAQAAAAAAAAAwAAoAAQAAAAAAAAAxAAoAAQAAAAAAAAAyAAoAAQAAAAAAAAAzAAoAAQAAAAAAAAA0AAoAAQAAAAAAAAA1AAoAAQAAAAAAAAAtAPz/AQACAAAAAAAuAP3/AQACAAAAAAAvAP3/AQACAAAAAAAwAP3/AQACAAAAAAAxAPz/AQACAAAAAAAyAPz/AQACAAAAAAAzAPz/AQACAAAAAAA0APz/AQACAAAAAAA1APz/AQACAAAAAAA2APz/AQACAAAAAAA3APz/AQACAAAAAAA4APz/AQACAAAAAAAuAPz/AwAAAAAAAQAvAPz/AwAAAAAAAQAwAPz/AwAAAAAAAQAtAPn/AQACAAAAAAAuAPj/AQACAAAAAAAvAPj/AQACAAAAAAAwAPj/AQACAAAAAAAxAPn/AQACAAAAAAAyAPn/AQACAAAAAAAzAPn/AQACAAAAAAA0APn/AQACAAAAAAA1APn/AQACAAAAAAA2APn/AQACAAAAAAA3APn/AQACAAAAAAA4APn/AQACAAAAAAA5APn/AQACAAAAAAA6APn/AQACAAAAAAA7APn/AQACAAAAAAA8APn/AQACAAAAAAA9APn/AQACAAAAAAA+APn/AQACAAAAAAA/APn/AQACAAAAAABAAPn/AQACAAAAAABBAPn/AQACAAAAAABCAPn/AQACAAAAAABDAPn/AQACAAAAAAA5APz/AQACAAAAAAA6APz/AQACAAAAAAA7APz/AQACAAAAAAA8APz/AQACAAAAAAA9APz/AQACAAAAAAA+APz/AQACAAAAAAA/APz/AQACAAAAAABAAPz/AQACAAAAAABBAPz/AQACAAAAAABCAPz/AQACAAAAAABDAPz/AQACAAAAAABEAPn/AQACAAAAAABFAPn/AQACAAAAAABGAPn/AQACAAAAAABHAPn/AQACAAAAAABIAPn/AQACAAAAAABJAPn/AQACAAAAAABKAPn/AQACAAAAAABLAPn/AQACAAAAAABMAPn/AQACAAAAAABEAPz/AQACAAAAAABFAPz/AQACAAAAAABGAPz/AQACAAAAAABHAPz/AQACAAAAAABIAPz/AQACAAAAAABJAPz/AQACAAAAAABKAPz/AQACAAAAAABLAPz/AQACAAAAAABMAPz/AQACAAAAAABNAPn/AQACAAAAAABOAPn/AQACAAAAAABPAPn/AQACAAAAAABQAPn/AQACAAAAAABRAPn/AQACAAAAAABNAPz/AQACAAAAAABOAPz/AQACAAAAAABPAPz/AQACAAAAAABQAPz/AQACAAAAAABRAPz/AQACAAAAAABSAP3/AQACAAAAAABTAP7/AQACAAAAAABUAP//AQACAAAAAABVAAAAAQACAAAAAABWAAEAAQACAAAAAABWAAIAAQAAAAAAAABXAAIAAQAAAAAAAABYAAIAAQAAAAAAAABZAAIAAQAAAAAAAABaAAIAAQAAAAAAAABbAAIAAQAAAAAAAABcAAIAAQAAAAAAAABdAAIAAQAAAAAAAABeAAIAAQAAAAAAAABfAAIAAQAAAAAAAABgAAIAAQAAAAAAAABhAAIAAQAAAAAAAABiAAIAAQAAAAAAAABjAAIAAQAAAAAAAABkAAIAAQAAAAAAAABlAAIAAQAAAAAAAABmAAIAAQAAAAAAAABnAAIAAQAAAAAAAABoAAIAAQAAAAAAAABpAAIAAQAAAAAAAABqAAIAAQAAAAAAAABrAAIAAQAAAAAAAABsAAIAAQAAAAAAAABtAAIAAQAAAAAAAABuAAIAAQAAAAAAAAA1AAsAAQACAAAAAAA1AAwAAQACAAAAAAA1AA0AAQACAAAAAAA1AA4AAQACAAAAAAA1AA8AAQACAAAAAAA1ABAAAQACAAAAAAA1ABEAAQACAAAAAAA1ABIAAQACAAAAAAA1ABMAAQACAAAAAABiAAEAAgAAAAAAAgAYAAYAAQABAAAAAAAYAAcAAQABAAAAAAAYAAgAAQABAAAAAAAYAAkAAQABAAAAAAAYAAoAAQABAAAAAABSAPj/AQACAAAAAABTAPf/AQACAAAAAABUAPb/AQACAAAAAABVAPX/AQACAAAAAAAWAAYAAQABAAAAAAAXAAYAAQABAAAAAAAVAAYAAQABAAAAAAAUAAYAAQABAAAAAAATAAYAAQABAAAAAAASAAYAAQABAAAAAAARAAYAAQABAAAAAAAQAAYAAQABAAAAAAAPAAYAAQABAAAAAAAOAAYAAQABAAAAAAANAAYAAQABAAAAAAAMAAYAAQABAAAAAAALAAYAAQABAAAAAAAKAAYAAQABAAAAAAAJAAYAAQABAAAAAAAIAAYAAQABAAAAAAAHAAYAAQABAAAAAAAGAAYAAQABAAAAAAAFAAYAAQABAAAAAAAEAAYAAQABAAAAAAADAAYAAQABAAAAAAACAAYAAQABAAAAAAABAAYAAQABAAAAAAAAAAYAAQABAAAAAAD//wYAAQABAAAAAAD+/wYAAQABAAAAAAD9//3/AQAAAAAAAAD9//7/AQABAAAAAAD9////AQABAAAAAAD9/wAAAQABAAAAAAD9/wEAAQAAAAAAAAD0/xAAAQABAAAAAAD1/xAAAQABAAAAAAD2/xAAAQABAAAAAAD3/xAAAQABAAAAAAD4/xAAAQABAAAAAAD5/xAAAQABAAAAAAD6/xAAAQABAAAAAAD7/xAAAQABAAAAAAD8/xAAAQABAAAAAAD9/xAAAQABAAAAAAD+/xAAAQABAAAAAAAAAAwAAQABAAAAAAAAAA0AAQABAAAAAAAAAA4AAQABAAAAAAAAAA8AAQABAAAAAAAAABAAAQABAAAAAAD//xAAAQABAAAAAADz/xAAAQABAAAAAADy/xAAAQABAAAAAAA=")
+tile_set = SubResource("TileSet_0j62p")
+
+[node name="Label10" type="Label" parent="Layer0" unique_id=992755331]
+offset_left = -327.0
+offset_top = 197.0
+offset_right = -195.0
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("6_8w0pe")
+text = "bye bye
+    now"
+
+[node name="Label9" type="Label" parent="Layer0" unique_id=1321773029]
+offset_left = -173.0
+offset_top = 200.0
+offset_right = -41.0
+offset_bottom = 251.0
+theme_override_fonts/font = ExtResource("6_8w0pe")
+text = "achivement:
+no border"
+
+[node name="Label8" type="Label" parent="Layer0" unique_id=1465097920]
+offset_left = 80.0
+offset_top = 114.0
+offset_right = 208.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("6_8w0pe")
+text = "wrong way!!"
+
+[node name="Label7" type="Label" parent="Layer0" unique_id=705200337]
+offset_left = 787.0
+offset_top = -93.0
+offset_right = 1061.0
+offset_bottom = -69.0
+theme_override_fonts/font = ExtResource("6_8w0pe")
+text = "warning!!!                   ...   jk"
+
+[node name="Label5" type="Label" parent="Layer0" unique_id=6770685]
+offset_left = 1451.0
+offset_top = -32.0
+offset_right = 1899.0
+offset_bottom = -8.0
+theme_override_fonts/font = ExtResource("6_8w0pe")
+text = "but you deserve the win!"
+
+[node name="Label6" type="Label" parent="Layer0" unique_id=684730384]
+offset_left = 884.0
+offset_top = 130.0
+offset_right = 968.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("6_8w0pe")
+text = "goodbye"
+
+[node name="Label4" type="Label" parent="Layer0" unique_id=1234545247]
+offset_left = 849.0
+offset_top = -135.0
+offset_right = 1297.0
+offset_bottom = -111.0
+theme_override_fonts/font = ExtResource("6_8w0pe")
+text = "you reached here after some failuers"
+
+[node name="Label3" type="Label" parent="Layer0" unique_id=774100463]
+offset_left = 473.0
+offset_top = 138.0
+offset_right = 809.0
+offset_bottom = 162.0
+theme_override_fonts/font = ExtResource("6_8w0pe")
+text = "i guess you \"chosed\" this way..."
+
+[node name="Label2" type="Label" parent="Layer0" unique_id=1051923726]
+offset_left = 532.0
+offset_top = -90.0
+offset_right = 806.0
+offset_bottom = -66.0
+theme_override_fonts/font = ExtResource("6_8w0pe")
+text = "are you sure its ->"
+
+[node name="Label" type="Label" parent="Layer0" unique_id=1365684141]
+offset_left = 37.0
+offset_top = -25.0
+offset_right = 311.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("6_8w0pe")
+text = "bounce your way through~"
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1728496637]
+
+[node name="Player" parent="." unique_id=1815213741 instance=ExtResource("6_qewby")]
+unique_name_in_owner = true
+
+[node name="FallDeath" type="Area2D" parent="." unique_id=1994734699]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallDeath" unique_id=702643940]
+position = Vector2(-3, 441)
+shape = SubResource("RectangleShape2D_xqns2")
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=2120871634]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Enemy" parent="." unique_id=614667678 instance=ExtResource("7_bradm")]
+visible = false
+position = Vector2(19, 27)
+
+[connection signal="body_entered" from="Layer0/@Area2D@155392" to="Layer0/@Area2D@155392" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155393" to="Layer0/@Area2D@155393" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155394" to="Layer0/@Area2D@155394" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155395" to="Layer0/@Area2D@155395" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155396" to="Layer0/@Area2D@155396" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155397" to="Layer0/@Area2D@155397" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155398" to="Layer0/@Area2D@155398" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155399" to="Layer0/@Area2D@155399" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155400" to="Layer0/@Area2D@155400" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155401" to="Layer0/@Area2D@155401" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155402" to="Layer0/@Area2D@155402" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155403" to="Layer0/@Area2D@155403" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155404" to="Layer0/@Area2D@155404" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155405" to="Layer0/@Area2D@155405" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155406" to="Layer0/@Area2D@155406" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155407" to="Layer0/@Area2D@155407" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155408" to="Layer0/@Area2D@155408" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155409" to="Layer0/@Area2D@155409" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155410" to="Layer0/@Area2D@155410" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155411" to="Layer0/@Area2D@155411" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155412" to="Layer0/@Area2D@155412" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@155413" to="Layer0/@Area2D@155413" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@183041" to="Layer0/@Area2D@183041" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@183042" to="Layer0/@Area2D@183042" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@183043" to="Layer0/@Area2D@183043" method="_on_body_entered"]
+[connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]

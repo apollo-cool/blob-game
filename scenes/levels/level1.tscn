@@ -39,14 +39,14 @@ sources/3 = SubResource("TileSetScenesCollectionSource_1seuy")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqns2"]
 size = Vector2(10000000, 240)
 
-[node name="Level" type="Node2D" unique_id=2090821432]
+[node name="Level2" type="Node2D" unique_id=2090821432]
 script = ExtResource("1_ru4tf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1229800865]
-offset_left = -874.0
-offset_top = -299.0
-offset_right = 1165.0
-offset_bottom = 445.0
+offset_left = -314.0
+offset_top = -320.0
+offset_right = 607.0
+offset_bottom = 373.0
 texture = ExtResource("2_1seuy")
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
@@ -119,7 +119,7 @@ unique_name_in_owner = true
 one_shot = true
 
 [connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@116608" to="Layer0/@Area2D@116608" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@116609" to="Layer0/@Area2D@116609" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@264937" to="Layer0/@Area2D@264937" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@264938" to="Layer0/@Area2D@264938" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]

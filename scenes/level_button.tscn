@@ -27,3 +27,5 @@ theme_override_styles/normal = ExtResource("3_hrusj")
 theme_override_styles/pressed = ExtResource("3_hrusj")
 theme_override_styles/hover = ExtResource("3_hrusj")
 text = "1"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
