@@ -43,11 +43,12 @@ size = Vector2(10000000, 240)
 script = ExtResource("1_ru4tf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1229800865]
-offset_left = -314.0
-offset_top = -320.0
-offset_right = 607.0
-offset_bottom = 373.0
+offset_left = -1583.0
+offset_top = -301.0
+offset_right = 1882.0
+offset_bottom = 392.0
 texture = ExtResource("2_1seuy")
+expand_mode = 3
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
 use_parent_material = true
@@ -119,7 +120,7 @@ unique_name_in_owner = true
 one_shot = true
 
 [connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@264937" to="Layer0/@Area2D@264937" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@264938" to="Layer0/@Area2D@264938" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@141429" to="Layer0/@Area2D@141429" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@141430" to="Layer0/@Area2D@141430" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]

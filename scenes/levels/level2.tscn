@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://20n3iexah6tx" path="res://scenes/enemies/enemy.tscn" id="6_76toy"]
 [ext_resource type="FontFile" uid="uid://cn6x1tjw22dqp" path="res://assets/Kenney Blocks.ttf" id="6_b0vvs"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k0mew"]
+load_path = "res://.godot/imported/level_BG.png-87359e48f2bc886d357851bff15f30c9.ctex"
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mm7tu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iw5l3"]
@@ -41,6 +44,14 @@ size = Vector2(10000000, 240)
 
 [node name="Level" type="Node2D" unique_id=2090821432]
 script = ExtResource("1_yqkch")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1679747312]
+offset_left = -1632.0
+offset_top = -317.0
+offset_right = 1833.0
+offset_bottom = 376.0
+texture = SubResource("CompressedTexture2D_k0mew")
+expand_mode = 3
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
 use_parent_material = true
@@ -102,17 +113,17 @@ one_shot = true
 [node name="Enemy" parent="." unique_id=614667678 instance=ExtResource("6_76toy")]
 position = Vector2(178, -84)
 
-[connection signal="body_entered" from="Layer0/@Area2D@139855" to="Layer0/@Area2D@139855" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@139856" to="Layer0/@Area2D@139856" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@139857" to="Layer0/@Area2D@139857" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@139858" to="Layer0/@Area2D@139858" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@139859" to="Layer0/@Area2D@139859" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@139860" to="Layer0/@Area2D@139860" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@139861" to="Layer0/@Area2D@139861" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@139862" to="Layer0/@Area2D@139862" method="_on_body_entered"]
 [connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@146024" to="Layer0/@Area2D@146024" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@146025" to="Layer0/@Area2D@146025" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@146026" to="Layer0/@Area2D@146026" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142556" to="Layer0/@Area2D@142556" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142557" to="Layer0/@Area2D@142557" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142558" to="Layer0/@Area2D@142558" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142559" to="Layer0/@Area2D@142559" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142560" to="Layer0/@Area2D@142560" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142561" to="Layer0/@Area2D@142561" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142562" to="Layer0/@Area2D@142562" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142564" to="Layer0/@Area2D@142564" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142565" to="Layer0/@Area2D@142565" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142566" to="Layer0/@Area2D@142566" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@142567" to="Layer0/@Area2D@142567" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]
