@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cx05u5dymhxt0" path="res://scenes/levels/level1.tscn" id="3_754v2"]
 [ext_resource type="PackedScene" uid="uid://m6g2yq8ldb0j" path="res://scenes/levels/level2.tscn" id="5_lnm56"]
 [ext_resource type="PackedScene" uid="uid://bfbyh3pv0moo1" path="res://scenes/levels/level3.tscn" id="6_s50fj"]
-[ext_resource type="PackedScene" uid="uid://537osw1nm5il" path="res://scenes/level4.tscn" id="7_yp7de"]
+[ext_resource type="PackedScene" uid="uid://bnnnt75vmsmgn" path="res://scenes/levels/level4.tscn" id="7_lnm56"]
 
 [node name="LevelSelector" type="Control" unique_id=1238605885]
 layout_mode = 3
@@ -62,5 +62,5 @@ text = "3"
 
 [node name="LevelButton4" parent="VBoxContainer/GridContainer" unique_id=243567974 instance=ExtResource("2_x0iuu")]
 layout_mode = 2
-LevelScene = ExtResource("7_yp7de")
+LevelScene = ExtResource("7_lnm56")
 text = "4"
