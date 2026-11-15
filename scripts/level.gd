@@ -42,3 +42,7 @@ func _ready() -> void:
 	GlobalSignals.checkpoint_reached.connect(_on_checkpoint)
 	GlobalSignals.goal_reached.connect(_on_goal_reached)
 	GlobalSignals.player_attacked.connect(kill_player)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
