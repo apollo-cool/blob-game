@@ -1,0 +1,137 @@
+[gd_scene format=4 uid="uid://bnnnt75vmsmgn"]
+
+[ext_resource type="Script" uid="uid://te7ys27pfpxw" path="res://scripts/level.gd" id="1_5cjb5"]
+[ext_resource type="Texture2D" uid="uid://derg6evskwk3q" path="res://assets/textures/tilemap.png" id="2_q6sfj"]
+[ext_resource type="PackedScene" uid="uid://bmw6vmytsxhqv" path="res://scenes/functional_tiles/checkpoint_flag.tscn" id="3_0wxwt"]
+[ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_5tkub"]
+[ext_resource type="PackedScene" uid="uid://c7657k3w8s0du" path="res://scenes/functional_tiles/Bouncepad.tscn" id="5_jvphm"]
+[ext_resource type="FontFile" uid="uid://cn6x1tjw22dqp" path="res://assets/Kenney Blocks.ttf" id="6_g1xgd"]
+[ext_resource type="PackedScene" uid="uid://y1d1l8yuitqm" path="res://scenes/player.tscn" id="7_3n7tn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mm7tu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iw5l3"]
+texture = ExtResource("2_q6sfj")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ppgk2"]
+resource_name = "Functional"
+scenes/1/scene = ExtResource("3_0wxwt")
+scenes/2/scene = ExtResource("4_5tkub")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_b121j"]
+resource_name = "Bouncepad"
+scenes/1/scene = ExtResource("5_jvphm")
+
+[sub_resource type="TileSet" id="TileSet_0j62p"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_mm7tu")
+sources/1 = SubResource("TileSetAtlasSource_iw5l3")
+sources/2 = SubResource("TileSetScenesCollectionSource_ppgk2")
+sources/3 = SubResource("TileSetScenesCollectionSource_b121j")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqns2"]
+size = Vector2(10000000, 240)
+
+[node name="Level" type="Node2D" unique_id=2090821432]
+script = ExtResource("1_5cjb5")
+
+[node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD+/8n/AQAAAAAAAAD//8n/AQAAAAAAAAAAAMn/AQAAAAAAAAABAMn/AQAAAAAAAAD5/8P/AQACAAAAAAD5/8T/AQACAAAAAAD5/8X/AQACAAAAAAD5/8b/AQACAAAAAAD5/8f/AQACAAAAAAD5/8j/AQACAAAAAAD5/8n/AQACAAAAAAD5/8r/AQACAAAAAAD5/8v/AQACAAAAAAD5/8z/AQACAAAAAAD5/83/AQACAAAAAAD5/87/AQACAAAAAAD5/9L/AQACAAAAAAD5/9P/AQACAAAAAAD5/9T/AQACAAAAAAD5/9X/AQACAAAAAAD5/9b/AQACAAAAAAD5/9f/AQACAAAAAAD5/9j/AQACAAAAAAD5/9n/AQACAAAAAAD5/9r/AQACAAAAAAD5/9v/AQACAAAAAAD5/9z/AQACAAAAAAD5/93/AQACAAAAAAD5/97/AQACAAAAAAD5/9//AQACAAAAAAD5/+D/AQACAAAAAAD5/+H/AQACAAAAAAD5/+L/AQACAAAAAAD5/+P/AQACAAAAAAD5/+T/AQACAAAAAAD5/+X/AQACAAAAAAD5/+b/AQACAAAAAAD5/+f/AQACAAAAAAD5/+j/AQACAAAAAAD5/+n/AQACAAAAAAD5/+r/AQACAAAAAAD5/+v/AQACAAAAAAD5/+z/AQACAAAAAAD5/+3/AQACAAAAAAD5/+7/AQACAAAAAAD5/+//AQACAAAAAAD5//D/AQACAAAAAAD5//H/AQACAAAAAAD5//L/AQACAAAAAAD5//P/AQACAAAAAAD5//T/AQACAAAAAAD5//X/AQACAAAAAAD5//b/AQACAAAAAAD5//f/AQACAAAAAAD5//j/AQACAAAAAAD5//n/AQACAAAAAAD5//r/AQACAAAAAAD5//v/AQACAAAAAAAGAMP/AQACAAAAAAAGAMT/AQACAAAAAAAGAMX/AQACAAAAAAAGAMb/AQACAAAAAAAGAMf/AQACAAAAAAAGAMj/AQACAAAAAAAGAMn/AQACAAAAAAAGAMr/AQACAAAAAAAGAMv/AQACAAAAAAAGAMz/AQACAAAAAAAGAM3/AQACAAAAAAAGAM7/AQACAAAAAAAGAM//AQACAAAAAAAGAND/AQACAAAAAAAGANH/AQACAAAAAAAGANL/AQACAAAAAAAGANP/AQACAAAAAAAGANT/AQACAAAAAAAGANX/AQACAAAAAAAGANb/AQACAAAAAAAGANf/AQACAAAAAAAGANj/AQACAAAAAAAGANn/AQACAAAAAAAGANr/AQACAAAAAAAGANv/AQACAAAAAAAGANz/AQACAAAAAAAGAN3/AQACAAAAAAAGAN7/AQACAAAAAAAGAN//AQACAAAAAAAGAOD/AQACAAAAAAAGAOH/AQACAAAAAAAGAOL/AQACAAAAAAAGAOP/AQACAAAAAAAGAOT/AQACAAAAAAAGAOX/AQACAAAAAAAGAOb/AQACAAAAAAAGAOf/AQACAAAAAAAGAOj/AQACAAAAAAAGAOn/AQACAAAAAAAGAOr/AQACAAAAAAAGAOv/AQACAAAAAAAGAOz/AQACAAAAAAAGAO3/AQACAAAAAAAGAO7/AQACAAAAAAAGAO//AQACAAAAAAAGAPD/AQACAAAAAAAGAPH/AQACAAAAAAAGAPL/AQACAAAAAAAGAPP/AQACAAAAAAAGAPT/AQACAAAAAAAGAPX/AQACAAAAAAAGAPb/AQACAAAAAAAGAPf/AQACAAAAAAAGAPj/AQACAAAAAAAGAPn/AQACAAAAAAAGAPr/AQACAAAAAAAGAPv/AQACAAAAAAD5//z/AQACAAAAAAD5//3/AQACAAAAAAD5//7/AQAAAAAAAAAGAPz/AQACAAAAAAAGAP3/AQACAAAAAAAGAP7/AQAAAAAAAAD6//7/AQAAAAAAAAD7//7/AQAAAAAAAAD8//7/AQAAAAAAAAD9//7/AQAAAAAAAAD+//7/AQAAAAAAAAD///7/AQAAAAAAAAAAAP7/AQAAAAAAAAABAP7/AQAAAAAAAAACAP7/AQAAAAAAAAADAP7/AQAAAAAAAAAEAP7/AQAAAAAAAAAFAP7/AQAAAAAAAAD6/8z/AQAAAAAAAAD7/8z/AQAAAAAAAAD8/8z/AQAAAAAAAAD9/8z/AQAAAAAAAAACAMz/AQAAAAAAAAADAMz/AQAAAAAAAAAEAMz/AQAAAAAAAAAFAMz/AQAAAAAAAAD5/8L/AQABAAAAAAD6/8L/AQABAAAAAAD7/8L/AQABAAAAAAD8/8L/AQABAAAAAAD9/8L/AQABAAAAAAD+/8L/AQABAAAAAAD//8L/AQABAAAAAAAAAML/AQABAAAAAAABAML/AQABAAAAAAACAML/AQABAAAAAAADAML/AQABAAAAAAAGAML/AQABAAAAAAAFAML/AQABAAAAAAAEAML/AQABAAAAAAD9/8//AQABAAAAAAACAM//AQABAAAAAAD6/9P/AQACAAAAAAD7/9P/AQACAAAAAAD5/9H/AQACAAAAAAD7/9L/AwAAAAAAAQD6/9L/AwAAAAAAAQAEANP/AQACAAAAAAAFANP/AQACAAAAAAAFAM7/AQACAAAAAAD5/8//AQACAAAAAAD5/9D/AQACAAAAAAD6/87/AQACAAAAAAAEANL/AwAAAAAAAQAFANL/AwAAAAAAAQADAMv/AwAAAAAAAQD8/8v/AwAAAAAAAQABANL/AQABAAAAAAABANP/AQABAAAAAAD//9T/AQABAAAAAAAAANT/AQABAAAAAAD+/9T/AQABAAAAAAD+/9P/AQABAAAAAAD+/9L/AQABAAAAAAD9/9H/AQABAAAAAAD9/9D/AQABAAAAAAABANT/AQABAAAAAAACAND/AQABAAAAAAACANH/AQABAAAAAAD7/87/AQACAAAAAAAEAM7/AQACAAAAAAD7/9b/AQACAAAAAAD7/9f/AQACAAAAAAD7/9j/AQACAAAAAAD7/9n/AQACAAAAAAD7/9r/AQACAAAAAAD8/9r/AQACAAAAAAD9/9r/AQACAAAAAAD+/9b/AQACAAAAAAD+/9f/AQACAAAAAAD//9j/AQACAAAAAAD//9n/AQACAAAAAAAAANr/AQACAAAAAAABANn/AQACAAAAAAABANj/AQACAAAAAAACANf/AQACAAAAAAACANb/AQACAAAAAAAEANj/AQABAAAAAAADANv/AQACAAAAAAACANz/AQACAAAAAAABAN3/AQACAAAAAAAAAN7/AQACAAAAAAABAN//AQACAAAAAAACAN//AQACAAAAAAADAN//AQACAAAAAAAEAN//AQACAAAAAAADANz/AQACAAAAAAADAN3/AQACAAAAAAADAN7/AQACAAAAAAADAOD/AQACAAAAAAADAOL/AQACAAAAAAADAOH/AQACAAAAAAD//9//AQACAAAAAAAAAN//AQACAAAAAAD8/9n/AwAAAAAAAQD9/9n/AwAAAAAAAQAEANf/AwAAAAAAAQD8/93/AQAAAAAAAAD8/97/AQAAAAAAAAD8/9//AQAAAAAAAAD8/+D/AQAAAAAAAAD7/+D/AQAAAAAAAAD6/+D/AQAAAAAAAAAFAOT/AQACAAAAAAAFAOP/AwAAAAAAAQD7/+X/AwAAAAAAAQD8/+X/AwAAAAAAAQD9/+X/AwAAAAAAAQD+/+X/AwAAAAAAAQD//+X/AwAAAAAAAQAAAOX/AwAAAAAAAQABAOX/AwAAAAAAAQACAOX/AwAAAAAAAQADAOX/AwAAAAAAAQAEAOX/AwAAAAAAAQAEAN7/AwAAAAAAAQD6/+n/AQABAAAAAAD7/+n/AQABAAAAAAD8/+n/AQABAAAAAAADAOn/AQABAAAAAAAEAOn/AQABAAAAAAAFAOn/AQABAAAAAAD9/+v/AQACAAAAAAD+/+z/AQACAAAAAAD8/+z/AQACAAAAAAD//+3/AQACAAAAAAAAAOz/AQACAAAAAAABAOv/AQACAAAAAAACAOz/AQACAAAAAAD8/+7/AQACAAAAAAD9/+//AQACAAAAAAD+//D/AQACAAAAAAD///H/AQACAAAAAAAAAPD/AQACAAAAAAABAO//AQACAAAAAAACAO7/AQACAAAAAAADAO3/AQACAAAAAAD7/+3/AQACAAAAAAD6//T/AwAAAAAAAQD7//T/AwAAAAAAAQD8//T/AwAAAAAAAQD9//T/AwAAAAAAAQD+//T/AwAAAAAAAQAAAPT/AwAAAAAAAQABAPT/AwAAAAAAAQACAPT/AwAAAAAAAQADAPT/AwAAAAAAAQAEAPT/AwAAAAAAAQAFAPT/AwAAAAAAAQD+//X/AQACAAAAAAD+//b/AQACAAAAAAD+//f/AQACAAAAAAD+//j/AQACAAAAAAD+//n/AQACAAAAAAAAAPX/AQACAAAAAAAAAPb/AQACAAAAAAAAAPf/AQACAAAAAAAAAPj/AQACAAAAAAAAAPn/AQACAAAAAAD///3/AgAAAAAAAgA=")
+tile_set = SubResource("TileSet_0j62p")
+
+[node name="Label3" type="Label" parent="Layer0" unique_id=1509293286]
+offset_left = -94.0
+offset_top = -222.0
+offset_right = 95.866394
+offset_bottom = -199.0
+theme_override_fonts/font = ExtResource("6_g1xgd")
+theme_override_font_sizes/font_size = 15
+text = "thanks for playing"
+
+[node name="Label3" type="Label" parent="Layer0/Label3" unique_id=1878260681]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 140.0
+offset_right = 130.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("6_g1xgd")
+theme_override_font_sizes/font_size = 15
+text = "jackpot!"
+
+[node name="Label2" type="Label" parent="Layer0" unique_id=657593690]
+offset_left = -78.0
+offset_top = -451.0
+offset_right = 118.0
+offset_bottom = -400.0
+theme_override_fonts/font = ExtResource("6_g1xgd")
+theme_override_font_sizes/font_size = 15
+text = "halfway there!"
+
+[node name="Label" type="Label" parent="Layer0" unique_id=1195985264]
+offset_left = -89.0
+offset_top = -972.0
+offset_right = 107.0
+offset_bottom = -921.0
+theme_override_fonts/font = ExtResource("6_g1xgd")
+theme_override_font_sizes/font_size = 15
+text = "Dropper level!
+Fall to the bottom"
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1728496637]
+
+[node name="Player" parent="." unique_id=1815213741 instance=ExtResource("7_3n7tn")]
+unique_name_in_owner = true
+position = Vector2(-1, -887)
+
+[node name="FallDeath" type="Area2D" parent="." unique_id=1994734699]
+position = Vector2(1, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallDeath" unique_id=702643940]
+position = Vector2(-3, 441)
+shape = SubResource("RectangleShape2D_xqns2")
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=2120871634]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="body_entered" from="Layer0/@Area2D@292724" to="Layer0/@Area2D@292724" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@292725" to="Layer0/@Area2D@292725" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@292726" to="Layer0/@Area2D@292726" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@292727" to="Layer0/@Area2D@292727" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@292799" to="Layer0/@Area2D@292799" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@292954" to="Layer0/@Area2D@292954" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@292955" to="Layer0/@Area2D@292955" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@292956" to="Layer0/@Area2D@292956" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293035" to="Layer0/@Area2D@293035" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293036" to="Layer0/@Area2D@293036" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293037" to="Layer0/@Area2D@293037" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293038" to="Layer0/@Area2D@293038" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293039" to="Layer0/@Area2D@293039" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293040" to="Layer0/@Area2D@293040" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293041" to="Layer0/@Area2D@293041" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293042" to="Layer0/@Area2D@293042" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293043" to="Layer0/@Area2D@293043" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293044" to="Layer0/@Area2D@293044" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293045" to="Layer0/@Area2D@293045" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@293117" to="Layer0/@Area2D@293117" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300848" to="Layer0/@Area2D@300848" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300849" to="Layer0/@Area2D@300849" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300850" to="Layer0/@Area2D@300850" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300851" to="Layer0/@Area2D@300851" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300852" to="Layer0/@Area2D@300852" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300853" to="Layer0/@Area2D@300853" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300854" to="Layer0/@Area2D@300854" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300855" to="Layer0/@Area2D@300855" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300856" to="Layer0/@Area2D@300856" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300857" to="Layer0/@Area2D@300857" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@300858" to="Layer0/@Area2D@300858" method="_on_body_entered"]
+[connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]
