@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://te7ys27pfpxw" path="res://scripts/level.gd" id="1_b72m1"]
 [ext_resource type="Texture2D" uid="uid://derg6evskwk3q" path="res://assets/textures/tilemap.png" id="2_5mhml"]
+[ext_resource type="Texture2D" uid="uid://ca76x6qtjs6c2" path="res://assets/textures/aseprite/level_BG.png" id="2_7eb4w"]
 [ext_resource type="PackedScene" uid="uid://bmw6vmytsxhqv" path="res://scenes/functional_tiles/checkpoint_flag.tscn" id="3_rupth"]
 [ext_resource type="PackedScene" uid="uid://wfboaok720sf" path="res://scenes/functional_tiles/win_flag.tscn" id="4_6qt4k"]
 [ext_resource type="PackedScene" uid="uid://c7657k3w8s0du" path="res://scenes/functional_tiles/Bouncepad.tscn" id="5_fh4ka"]
@@ -41,6 +42,14 @@ size = Vector2(10000000, 240)
 
 [node name="Level" type="Node2D" unique_id=2090821432]
 script = ExtResource("1_b72m1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1972243354]
+offset_left = -1258.0
+offset_top = -335.0
+offset_right = 2207.0
+offset_bottom = 358.0
+texture = ExtResource("2_7eb4w")
+expand_mode = 3
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=244673116]
 use_parent_material = true
@@ -148,30 +157,30 @@ one_shot = true
 visible = false
 position = Vector2(19, 27)
 
-[connection signal="body_entered" from="Layer0/@Area2D@155392" to="Layer0/@Area2D@155392" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155393" to="Layer0/@Area2D@155393" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155394" to="Layer0/@Area2D@155394" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155395" to="Layer0/@Area2D@155395" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155396" to="Layer0/@Area2D@155396" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155397" to="Layer0/@Area2D@155397" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155398" to="Layer0/@Area2D@155398" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155399" to="Layer0/@Area2D@155399" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155400" to="Layer0/@Area2D@155400" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155401" to="Layer0/@Area2D@155401" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155402" to="Layer0/@Area2D@155402" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155403" to="Layer0/@Area2D@155403" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155404" to="Layer0/@Area2D@155404" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155405" to="Layer0/@Area2D@155405" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155406" to="Layer0/@Area2D@155406" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155407" to="Layer0/@Area2D@155407" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155408" to="Layer0/@Area2D@155408" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155409" to="Layer0/@Area2D@155409" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155410" to="Layer0/@Area2D@155410" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155411" to="Layer0/@Area2D@155411" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155412" to="Layer0/@Area2D@155412" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@155413" to="Layer0/@Area2D@155413" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@183041" to="Layer0/@Area2D@183041" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@183042" to="Layer0/@Area2D@183042" method="_on_body_entered"]
-[connection signal="body_entered" from="Layer0/@Area2D@183043" to="Layer0/@Area2D@183043" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/Bouncepad" to="Layer0/Bouncepad" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152322" to="Layer0/@Area2D@152322" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152323" to="Layer0/@Area2D@152323" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152324" to="Layer0/@Area2D@152324" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152325" to="Layer0/@Area2D@152325" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152326" to="Layer0/@Area2D@152326" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152327" to="Layer0/@Area2D@152327" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152328" to="Layer0/@Area2D@152328" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152329" to="Layer0/@Area2D@152329" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152330" to="Layer0/@Area2D@152330" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152331" to="Layer0/@Area2D@152331" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152332" to="Layer0/@Area2D@152332" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152333" to="Layer0/@Area2D@152333" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152334" to="Layer0/@Area2D@152334" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152335" to="Layer0/@Area2D@152335" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152336" to="Layer0/@Area2D@152336" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152337" to="Layer0/@Area2D@152337" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152338" to="Layer0/@Area2D@152338" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152339" to="Layer0/@Area2D@152339" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152340" to="Layer0/@Area2D@152340" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152341" to="Layer0/@Area2D@152341" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152342" to="Layer0/@Area2D@152342" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152343" to="Layer0/@Area2D@152343" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152344" to="Layer0/@Area2D@152344" method="_on_body_entered"]
+[connection signal="body_entered" from="Layer0/@Area2D@152345" to="Layer0/@Area2D@152345" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDeath" to="." method="_on_fall_death_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn_player"]
