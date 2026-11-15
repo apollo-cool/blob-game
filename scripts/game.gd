@@ -16,6 +16,7 @@ func load_level(level_info: PackedScene) -> void:
 	level = level_info.instantiate()
 	add_child(level)
 	level.player_died.connect(_on_player_died)
+	lives = 3
 
 
 func _on_player_died() -> void:
