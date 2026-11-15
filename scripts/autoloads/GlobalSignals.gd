@@ -10,3 +10,5 @@ signal player_attacked
 signal play_button_pressed
 @warning_ignore("unused_signal")
 signal level_selected(level: PackedScene)
+@warning_ignore("unused_signal")
+signal game_over()
